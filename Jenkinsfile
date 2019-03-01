@@ -4,12 +4,17 @@ pipeline
  	{
 	 	stage('build')
  		{
- 		sh	'mvn --version'
+ 		 steps {
+ 			sh	'mvn --version'
+ 			}
  		}
  		
  		stage('post')
  		{
+ 		steps
+ 		 {
  		sh 'echo test piplein'
+ 		}
  		}
  		
 	 }
