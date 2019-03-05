@@ -22,12 +22,16 @@ pipeline
  		stage('deploy')
  		{
  		 
+ 		 steps {
+ 		 script {
  		 try {
  		 	sh 'scp -r /var/lib/jenkins/workspace/test-pipline/target/jenkins-test.war root@3.95.168.15:/opt/tomcat/webapps'
  			}
  
  		catch(exec){
- 		 echo deploy job failed
+ 		 sh 'echo deploy job failed'
+ 		 }
+ 		 }
  		 }
  		}
  		
