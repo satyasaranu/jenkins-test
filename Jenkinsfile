@@ -6,7 +6,7 @@ pipeline
  	maven 'latest'
  	}
  	
- 	trigger {
+ 	triggers {
  	poolSCM('* * * * *')
  	}
  	
