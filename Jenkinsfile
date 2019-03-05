@@ -38,7 +38,11 @@ pipeline
  		
  		stage('deploy')
  		{
- 		 
+ 		 input {
+ 		 message "should we continue?"
+ 		 ok "YES, we should"
+ 		 submitter "jenkins"
+ 		 }
  		 steps {
  		 script {
  		 try {
