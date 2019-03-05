@@ -3,7 +3,8 @@ pipeline
  agent any
  	options { buildDiscarder(logRotator(numToKeepStr: '5')) }
  	parameters {
-        string(name: 'FIRSTNAME', defaultValue: 'satya', description: 'pleas enter name')
+        string(name: 'FIRSTNAME', defaultValue: 'satya', description: 'pleas enter FIRST name')
+        string(name: 'LASTNAME', defaultValue: 'saranu', description: 'pleas enter LAST name')
         }
  	tools {
  	maven 'latest'
@@ -20,6 +21,7 @@ pipeline
  	   {
  	   steps{
  	   echo "hello ${params.FIRSTNAME}"
+ 	   echo "hello ${params.LASTNAME}"
  	   }
  	   }
  	   
