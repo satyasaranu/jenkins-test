@@ -1,7 +1,7 @@
 pipeline
 {
  agent any
- 
+ 	options { buildDiscarder(logRotator(numToKeepStr: '5')) }
  	tools {
  	maven 'latest'
  	}
@@ -14,7 +14,11 @@ pipeline
  	{
 	 	stage('build')
  		{
- 		 steps {
+ 		 
+ 		 when {
+ 		     branch 'develop'
+ 		     }
+ 		     steps {
  			sh	'mvn package'
  			}
  		}
