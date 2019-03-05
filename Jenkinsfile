@@ -2,6 +2,9 @@ pipeline
 {
  agent any
  	options { buildDiscarder(logRotator(numToKeepStr: '5')) }
+ 	parameters {
+        string(name: 'FIRSTNAME', defaultValue: 'satya', description: 'pleas enter name')
+        }
  	tools {
  	maven 'latest'
  	}
@@ -10,8 +13,14 @@ pipeline
  	pollSCM('* * * * *')
  	}
  	
+ 
  	stages
  	{
+ 	   stage('prebuild')
+ 	   {
+ 	   echo "hello ${params.FIRSTNAME}"
+ 	   }
+ 	   
 	 	stage('build')
  		{
  		 
