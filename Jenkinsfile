@@ -18,7 +18,9 @@ pipeline
  	{
  	   stage('prebuild')
  	   {
+ 	   steps{
  	   echo "hello ${params.FIRSTNAME}"
+ 	   }
  	   }
  	   
 	 	stage('build')
