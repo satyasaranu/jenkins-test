@@ -17,6 +17,10 @@ pipeline
  
  	stages
  	{
+ 	   stage('parallel stage')
+ 	   {
+ 	   failFast true
+ 	   parallel {
  	   stage('prebuild')
  	   {
  	   steps{
@@ -34,6 +38,8 @@ pipeline
  		     steps {
  			sh	'mvn package'
  			}
+ 		}
+ 		}
  		}
  		
  		stage('deploy')
