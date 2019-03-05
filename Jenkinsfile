@@ -1,9 +1,15 @@
 pipeline
 {
  agent any
+ 
  	tools {
  	maven 'latest'
  	}
+ 	
+ 	trigger {
+ 	poolSCM('* * * * *')
+ 	}
+ 	
  	stages
  	{
 	 	stage('build')
@@ -11,6 +17,12 @@ pipeline
  		 steps {
  			sh	'mvn package'
  			}
+ 		}
+ 		
+ 		stage('deploy')
+ 		{
+ 		 steps {
+ 		 sh 'scp -r /var/lib/jenkins/workspace/test-pipline/target/jenkins-test.war root@3.95.168.15:/opt/tomcat/webapps'
  		}
  		
  		stage('post')
