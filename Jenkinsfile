@@ -1,6 +1,9 @@
 pipeline
 {
  agent any
+ 	tools {
+ 	maven 'latest'
+ 	}
  	stages
  	{
 	 	stage('build')
